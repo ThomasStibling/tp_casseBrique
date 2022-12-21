@@ -1,13 +1,19 @@
 import java.awt.*;
 
 public class Balle {
-    private int x;
-    private int y;
+    public int x;
+    public int y;
+    public int xSpeed;
+    public int ySpeed;
+    public int size;
 
-    private int xSpeed;
+    public Color getColor() {
+        return color;
+    }
 
-    private int ySpeed;
-    private int size;
+
+
+    private Color color;
 
     public Balle(int x, int y, int xSpeed, int ySpeed, int size) {
         this.x = x;
@@ -15,23 +21,27 @@ public class Balle {
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
         this.size = size;
+        this.color=Color.blue;
     }
+
 
     public void move() {
         x += xSpeed;
         y += ySpeed;
 
-        if (x >= Fenetre.WIDTH - size || x <=0) {
+        if (x >= Fenetre.WIDTH - 50 || x <=0) {
             xSpeed = -xSpeed;
         }
 
-        if (y >= Fenetre.WIDTH - size || y <=0) {
+        if (y >= Fenetre.WIDTH - 50 || y <=0) {
             ySpeed = -ySpeed;
         }
     }
 
+
+
     public void dessiner(Graphics2D dessin){
-        dessin.fillOval(x, y, 25, 25);
+        dessin.fillOval(x, y, 50, 50);
     }
 
     public int getX() {
